@@ -17,9 +17,9 @@ const app = express();
 const config = {
  
 app.use(cors({
-  origin: ['http://localhost:3000','https://workflo-task.netlify.app']
+  origin: ['http://localhost:3000','https://workflo-task.netlify.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
+  credentials: true
 }));
 
 app.use(express.json());
