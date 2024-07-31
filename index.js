@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import dbConnection from './utils/index.js';
 // import { routeNotFound, errorHandler } from './middlewares/errorMiddlewave.js';
 import authRoutes from './routes/auth.js';
-import authTask from './routes/tasks.js'
+import authTask from './routes/tasks.js';
 
 dotenv.config();
 
@@ -14,10 +14,8 @@ dbConnection();
 
 const app = express();
 
-const config = {
- 
 app.use(cors({
-  origin: ['http://localhost:3000','https://workflo-task.netlify.app'],
+  origin: ['http://localhost:3000', 'https://workflo-task.netlify.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
@@ -30,7 +28,7 @@ app.use(morgan('dev'));
 app.use('/auth', authRoutes);
 // app.use(routeNotFound);
 // app.use(errorHandler);
-app.use('/task',authTask);
+app.use('/task', authTask);
 
 const PORT = process.env.PORT || 5000;
 
