@@ -15,21 +15,12 @@ dbConnection();
 const app = express();
 
 const config = {
-   origin: ['http://localhost:3000','https://workflo-task.netlify.app']
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-   credentials: true,
-    // other properties
-};
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Methods', config.methods.join(', '));
-    next();
-});
-// app.use(cors({
-//   origin: ['http://localhost:3000','https://workflo-task.netlify.app']
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   credentials: true,
-// }));
+ 
+app.use(cors({
+  origin: ['http://localhost:3000','https://workflo-task.netlify.app']
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
